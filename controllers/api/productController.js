@@ -12,7 +12,7 @@ controller = {
         const categorias = await db.sequelize.query('select distinct categories.name, count(categories.name) as "productos en esta categoria" from products inner join categories on products.category_id = categories.id group by categories.name' )
 
        for (let i = 0; i < products.length; i++) {
-           products[i].setDataValue("url", "http://localhost:3000/api/products/" + products[i].id)
+           products[i].setDataValue("url", "https://freshmarket-grupo9.herokuapp.com/api/products/" + products[i].id)
         }
                
         let respuesta = {
@@ -33,7 +33,7 @@ controller = {
 
         const producto = await db.Product.findByPk(id, {include: ["category"]});
 
-        producto.setDataValue("url de la imagen", 'http://localhost:3000/images/' + producto.image)
+        producto.setDataValue("url de la imagen", 'https://freshmarket-grupo9.herokuapp.com/images/' + producto.image)
 
         res.json(producto);
     },

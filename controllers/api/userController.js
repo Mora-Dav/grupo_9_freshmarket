@@ -8,7 +8,7 @@ controller = {
                 
 
        for (let i = 0; i < users.length; i++) {
-           users[i].setDataValue("url", "http://localhost:3000/api/users/" + users[i].id)
+           users[i].setDataValue("url", "https://freshmarket-grupo9.herokuapp.com/api/users/" + users[i].id)
         }
                
         let respuesta = {
@@ -28,7 +28,7 @@ controller = {
 
         const user = await db.User.findByPk(id, {attributes: ['id', 'name', 'lastname', 'email', 'phone', 'DNI', 'gender', 'avatar']});
 
-        user.setDataValue("url de la imagen", 'http://localhost:3000/images/users/' + user.avatar)
+        user.setDataValue("url de la imagen", 'https://freshmarket-grupo9.herokuapp.com/images/users/' + user.avatar)
 
         res.json(user);
     },
